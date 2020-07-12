@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<!-- thymeleaf 需加上 xmlns:th="http://www.thymeleaf.org" -->
+<html lang="en" xmlns:th="http://www.thymeleaf.org" >
+<head>
+    <meta charset="UTF-8">
+    <title>Test Page</title>
+</head>
+<body>
+<h1>Test Page</h1>
+<hr/>
+<!-- url参数 -->
+<p th:text="${param.text}"></p>
+
+<!-- request attribute -->
+<p th:text="${reqAttr}"></p>
+
+<!-- session attribute -->
+<p th:text="${session.sessionAttr}"></p>
+
+<!-- modeMap -->
+<p th:text="${modeMapKey1}"></p>
+
+<p th:text="${modeMapInt}"></p>
+
+<hr/>
+
+<div th:object="${obj}">
+name:<span th:text="*{name}"></span>
+<br/>
+age:<span th:text="*{age}"></span>
+<br/>
+sex:<span th:text="*{sex}"></span>
+</div>
+
+<hr/>
+
+</body>
+</html>

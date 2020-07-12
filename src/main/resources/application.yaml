@@ -1,0 +1,11 @@
+server:
+  port: 8080
+
+person:
+  name: dsj
+  age: 21
+  sex: false
+  tag:
+    - java
+    - html
+    - sql
