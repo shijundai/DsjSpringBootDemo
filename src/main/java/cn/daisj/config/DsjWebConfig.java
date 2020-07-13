@@ -2,17 +2,16 @@ package cn.daisj.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.web.servlet.LocaleResolver;
 import org.springframework.web.servlet.View;
 import org.springframework.web.servlet.ViewResolver;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.ViewResolverRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.i18n.AcceptHeaderLocaleResolver;
 import org.thymeleaf.util.StringUtils;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.Locale;
-import java.util.Map;
 
 /**
  * 两种注册ViewResolvers的方式
@@ -47,6 +46,35 @@ public class DsjWebConfig implements WebMvcConfigurer {
         registry.addViewController("viewOne").setViewName("view1");
         registry.addViewController("viewTwo").setViewName("view2");
     }
+
+    /**
+     * 增加local Resolver 用于国际化
+     * @return
+     */
+    @Bean
+    public LocaleResolver localeResolver(){
+        return new MyLocalResolver();
+    }
+
+
+    static class MyLocalResolver extends AcceptHeaderLocaleResolver {
+        @Override
+        public Locale resolveLocale(HttpServletRequest request) {
+            String lang = request.getParameter("lang");
+            if(StringUtils.isEmpty(lang)) {
+                lang = (String)request.getSession().getAttribute("lang");
+            } else {
+                request.getSession().setAttribute("lang",lang);
+            }
+            if(!StringUtils.isEmpty(lang)) {
+//                String[] langs = lang.split("_");
+//                return new Locale(langs[0],langs[1]);
+                return Locale.forLanguageTag(lang);
+            }
+            return super.resolveLocale(request);
+        }
+    }
+
 
     //    @Bean
 //    public ViewResolver viewResolverBean() {

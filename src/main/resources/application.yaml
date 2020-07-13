@@ -1,5 +1,5 @@
 server:
-  port: 8080
+  port: 9090
 
 person:
   name: dsj
@@ -9,3 +9,8 @@ person:
     - java
     - html
     - sql
+
+spring:
+  messages:
+    #相对路径 开头请勿添加斜杠
+    basename: i18n/login,i18n/message

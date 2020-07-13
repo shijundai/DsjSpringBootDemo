@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        [[#{login.title}]]
+    </title>
+</head>
+<body>
+<a href="/login?lang=zh">中文</a>
+<a href="/login?lang=en">English</a>
+<br/>
+<span th:text="#{login.user.name}"></span>:<input th:placeholder="#{login.user.name}"/>
+<br/>
+<span th:text="#{login.user.pwd}"></span>:<input type="password" th:placeholder="#{login.user.pwd}"/>
+<br/>
+<span th:text="#{login.vercode}"></span>:<input th:placeholder="#{login.vercode}"/>
+<hr/>
+<span th:text="#{message.success}"></span>
+</body>
+</html>

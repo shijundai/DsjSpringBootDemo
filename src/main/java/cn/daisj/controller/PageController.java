@@ -30,8 +30,13 @@ public class PageController {
 
     @RequestMapping("/resolver")
     public String dsj(HttpServletRequest request, HttpSession session, ModelMap map) {
-
         return "testResolver";
+    }
+
+
+    @RequestMapping("/login")
+    public String login(HttpServletRequest request, HttpSession session, ModelMap map) {
+        return "login";
     }
 
 }
