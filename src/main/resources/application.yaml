@@ -25,14 +25,14 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     #默认数据连接池是HikariDataSource
     type: com.alibaba.druid.pool.DruidDataSource
-    initialSize: 5: 
-    minIdl: 10: 
-    maxActiv: 20:
+    initialSize: 5
+    minIdl: 10
+    maxActiv: 20
 #    配置获取连接等待超时的时间
     maxWait: 60000
-#    <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+#    配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒
     timeBetweenEvictionRunsMillis: 2000
-#    <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+#   配置一个连接在池中最小生存的时间，单位是毫秒
     minEvictableIdleTimeMillis: 600000
     maxEvictableIdleTimeMillis: 900000
 
@@ -44,5 +44,6 @@ spring:
     keepAliv: true
     phyMaxUseCount: 1000
 
-#    <!-- 配置监控统计拦截的filters -->
-    filters: stat
+#   配置监控统计拦截的filters 使用别名的方式配置 druid-filter.properties
+    filters: mergeStat,log4j
+    connectionProperties: druid.stat.slowSqlMillis=5000
