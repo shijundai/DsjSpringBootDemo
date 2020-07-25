@@ -23,7 +23,7 @@ public class DruidSpringStatConfig {
      * @return
      */
     @Bean
-    public DruidStatInterceptor getBean(){
+    public DruidStatInterceptor getDruidStatInterceptor(){
         return new DruidStatInterceptor();
     }
 

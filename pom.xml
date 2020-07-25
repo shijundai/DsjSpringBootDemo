@@ -17,7 +17,9 @@
     <properties>
         <java.version>1.8</java.version>
     </properties>
-
+    <modules>
+        <module>mylog-spring-boot-start</module>
+    </modules>
     <dependencies>
         <dependency>
             <groupId>org.springframework.boot</groupId>
@@ -94,6 +96,12 @@
             <groupId>org.webjars</groupId>
             <artifactId>jquery</artifactId>
             <version>3.5.1</version>
+        </dependency>
+
+        <dependency>
+            <groupId>cn.mylog</groupId>
+            <artifactId>mylog-spring-boot-start</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 
