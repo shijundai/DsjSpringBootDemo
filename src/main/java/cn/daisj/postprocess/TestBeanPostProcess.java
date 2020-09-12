@@ -19,19 +19,19 @@ public class TestBeanPostProcess implements BeanPostProcessor {
     @Override
     public Object postProcessBeforeInitialization(Object bean, String beanName) throws BeansException {
         //不加的判断 所有的bean初始化都会打印
-        if(StringUtils.equals(beanName,"personBean")) {
+//        if(StringUtils.equals(beanName,"personBean")) {
             System.out.println("++++++++++++++ in BeanPostProcess postProcessBeforeInitialization +++++++++++++++++++");
-            System.out.println(beanName + ":" + bean);
-        }
+//            System.out.println(beanName + ":" + bean);
+//        }
         return bean;
     }
 
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
-        if(StringUtils.equals(beanName,"personBean")) {
+//        if(StringUtils.equals(beanName,"personBean")) {
             System.out.println("__________________ in BeanPostProcess postProcessAfterInitialization _________________");
-            System.out.println(beanName + ":" + bean);
-        }
+//            System.out.println(beanName + ":" + bean);
+//        }
         return bean;
     }
 }

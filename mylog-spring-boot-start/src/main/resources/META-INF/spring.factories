@@ -1,2 +1,2 @@
-org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+Rorg.springframework.boot.autoconfigure.EnableAutoConfiguration=\
 cn.mylog.DLogAutoConfigure
